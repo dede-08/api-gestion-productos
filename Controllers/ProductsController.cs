@@ -2,10 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using api_gestion_productos.Data;
 using api_gestion_productos.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace api_gestion_productos.Controllers
 {
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
     public class ProductsController : ControllerBase

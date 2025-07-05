@@ -26,7 +26,7 @@ CREATE TABLE "Products"(
 
 SELECT * FROM "Products";
 
-CREATE TABLE Users(
+CREATE TABLE "Users"(
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(50) NOT NULL,
 	lastName VARCHAR(50) NOT NULL,
@@ -36,5 +36,7 @@ CREATE TABLE Users(
 	password VARCHAR(100) NOT NULL
 );
 
+SELECT * FROM "Users";
 
+ALTER TABLE "Users" RENAME COLUMN lastName TO lastname;
 
