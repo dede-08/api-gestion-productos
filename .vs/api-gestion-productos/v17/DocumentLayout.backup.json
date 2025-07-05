@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|c:\\users\\ben\\onedrive\\desktop\\api-gestion-productos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DCFE2585-4BC9-45DB-81A0-26970044AD44}|api-gestion-productos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -42,12 +46,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T02:49:29.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T02:49:29.379Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -55,48 +58,41 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-24T02:48:09.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2025-06-24T02:48:09.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T02:05:04.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T02:05:04.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T02:03:36.965Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Products.cs",
-              "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Models\\Products.cs",
-              "RelativeDocumentMoniker": "Models\\Products.cs",
-              "ToolTip": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Models\\Products.cs",
-              "RelativeToolTip": "Models\\Products.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T02:03:36.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
               "ToolTip": "C:\\Users\\Ben\\OneDrive\\Desktop\\api-gestion-productos\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "Controllers\\ProductsController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCYAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T01:59:57.477Z",
               "EditorCaption": ""
