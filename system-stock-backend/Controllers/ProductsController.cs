@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using api_gestion_productos.Services;
 using api_gestion_productos.Models;
 using Microsoft.AspNetCore.Authorization;

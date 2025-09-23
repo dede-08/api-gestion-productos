@@ -5,25 +5,27 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './login.component.html'
+  templateUrl: './register.component.html'
 })
-export class LoginComponent {
+export class RegisterComponent {
+  name = '';
+  lastname = '';
   email = '';
   password = '';
   error = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  login() {
-    this.authService.login(this.email, this.password).subscribe(
+  register() {
+    this.authService.register(this.name, this.lastname, this.email, this.password).subscribe(
       () => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/login']);
       },
       (err) => {
-        this.error = 'Invalid email or password';
+        this.error = 'Failed to register';
       }
     );
   }

@@ -3,8 +3,16 @@
     <div class="col-md-6 col-lg-4">
       <div class="card">
         <div class="card-body">
-          <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
-          <form (ngSubmit)="login()">
+          <h2 class="card-title text-center mb-4">Registrarse</h2>
+          <form (ngSubmit)="register()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Apellido</label>
+              <input type="text" id="lastname" name="lastname" class="form-control" [(ngModel)]="lastname" required>
+            </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" required>
@@ -14,7 +22,7 @@
               <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password" required>
             </div>
             <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-            <button type="submit" class="btn btn-primary w-100">Acceder</button>
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
           </form>
         </div>
       </div>
