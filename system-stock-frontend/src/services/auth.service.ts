@@ -9,6 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:5173/api/Auth';
 
+
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<boolean> {
@@ -50,4 +51,11 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
   }
+
+  checkAuthStatus(): boolean {
+    const token = this.getToken();
+    // Here you can add additional logic to validate the token if needed
+    return !!token;
+  }
+
 }

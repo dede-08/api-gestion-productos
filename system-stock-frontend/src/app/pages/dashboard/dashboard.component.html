@@ -1,28 +1,280 @@
-<div class="container">
-  <div class="d-flex justify-content-between align-items-center">
-    <h1>Inventario de Productos</h1>
-    <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Categoría</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price | currency }}</td>
-        <td>{{ product.stock }}</td>
-        <td>{{ product.category }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://via.placeholder.com/40x40/ffffff/007bff?text=L" alt="Logo" class="me-2">
+          Gestión de Inventarios
+        </a>
+        
+        <div class="navbar-nav ms-auto">
+          <button class="btn btn-outline-light" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+      <!-- Stats Cards -->
+      <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card bg-primary text-white shadow">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-uppercase mb-1">Total Productos</div>
+                  <div class="h5 mb-0 font-weight-bold">{{ getTotalProducts() }}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-boxes fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card bg-success text-white shadow">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-uppercase mb-1">Stock Total</div>
+                  <div class="h5 mb-0 font-weight-bold">{{ getTotalStock() }}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-warehouse fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card bg-info text-white shadow">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-uppercase mb-1">Valor Total</div>
+                  <div class="h5 mb-0 font-weight-bold">\${{ getTotalValue().toFixed(2) }}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card bg-warning text-white shadow">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-uppercase mb-1">Stock Bajo</div>
+                  <div class="h5 mb-0 font-weight-bold">{{ getLowStockCount() }}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products Section -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+          <h6 class="m-0 font-weight-bold text-primary">
+            <img src="https://via.placeholder.com/30x30/007bff/ffffff?text=L" alt="Logo" class="me-2">
+            Lista de Productos
+          </h6>
+          <button class="btn btn-primary" (click)="openAddModal()">
+            <i class="fas fa-plus"></i> Agregar Producto
+          </button>
+        </div>
+        <div class="card-body">
+          <!-- Search and Filter -->
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Buscar productos..."
+                [(ngModel)]="searchTerm"
+                (input)="filterProducts()"
+              >
+            </div>
+            <div class="col-md-6">
+              <select class="form-select" [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="">Todas las categorías</option>
+                <option value="Electrónicos">Electrónicos</option>
+                <option value="Accesorios">Accesorios</option>
+                <option value="Ropa">Ropa</option>
+                <option value="Hogar">Hogar</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Table -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-primary">
+                <tr>
+                  <th>ID</th>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Categoría</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of filteredProducts">
+                  <td>{{ product.id }}</td>
+                  <td>
+                    <img [src]="product.imageUrl" alt="{{ product.name }}" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
+                  </td>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.description }}</td>
+                  <td>
+                    <span class="badge bg-secondary">{{ product.category }}</span>
+                  </td>
+                  <td>\${{ product.price.toFixed(2) }}</td>
+                  <td>
+                    <span class="badge" [class]="getStockBadgeClass(product.stock)">
+                      {{ product.stock }}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary me-1" (click)="openEditModal(product)">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(product.id)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal fade" [class.show]="showModal" [style.display]="showModal ? 'block' : 'none'" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <img src="https://via.placeholder.com/30x30/007bff/ffffff?text=L" alt="Logo" class="me-2">
+              {{ isEditMode ? 'Editar Producto' : 'Agregar Producto' }}
+            </h5>
+            <button type="button" class="btn-close" (click)="closeModal()"></button>
+          </div>
+          <div class="modal-body">
+            <form #productForm="ngForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label">Nombre *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    [(ngModel)]="currentProduct.name"
+                    name="name"
+                    required
+                  >
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="category" class="form-label">Categoría *</label>
+                  <select
+                    class="form-select"
+                    id="category"
+                    [(ngModel)]="currentProduct.category"
+                    name="category"
+                    required
+                  >
+                    <option value="">Seleccionar categoría</option>
+                    <option value="Electrónicos">Electrónicos</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Hogar">Hogar</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="description" class="form-label">Descripción</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  [(ngModel)]="currentProduct.description"
+                  name="description"
+                  rows="3"
+                ></textarea>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="price" class="form-label">Precio *</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="price"
+                    [(ngModel)]="currentProduct.price"
+                    name="price"
+                    step="0.01"
+                    min="0"
+                    required
+                  >
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="stock" class="form-label">Stock *</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="stock"
+                    [(ngModel)]="currentProduct.stock"
+                    name="stock"
+                    min="0"
+                    required
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="imageUrl" class="form-label">URL de Imagen</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="imageUrl"
+                  [(ngModel)]="currentProduct.imageUrl"
+                  name="imageUrl"
+                >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeModal()">
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="saveProduct()"
+              [disabled]="!productForm.form.valid"
+            >
+              {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div class="modal-backdrop fade" [class.show]="showModal" *ngIf="showModal"></div>
