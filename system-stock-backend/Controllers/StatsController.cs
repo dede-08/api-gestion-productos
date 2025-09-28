@@ -18,9 +18,7 @@ namespace api_gestion_productos.Controllers
             _context = context;
         }
 
-        /// <summary>
-        /// Obtiene estadísticas generales de productos
-        /// </summary>
+        ///obtiene las estadisticas generales de los productos
         [HttpGet("products")]
         public async Task<ActionResult<object>> GetProductStats()
         {
@@ -40,9 +38,7 @@ namespace api_gestion_productos.Controllers
             });
         }
 
-        /// <summary>
-        /// Obtiene productos por categoría con conteo
-        /// </summary>
+        ///obtiene productos por categoría con conteo
         [HttpGet("products/by-category")]
         public async Task<ActionResult<IEnumerable<object>>> GetProductsByCategory()
         {
@@ -61,9 +57,7 @@ namespace api_gestion_productos.Controllers
             return Ok(categoryStats);
         }
 
-        /// <summary>
-        /// Obtiene los productos más caros
-        /// </summary>
+        ///obtiene los productos con mayor precio
         [HttpGet("products/most-expensive")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetMostExpensiveProducts([FromQuery] int limit = 5)
         {
@@ -88,9 +82,7 @@ namespace api_gestion_productos.Controllers
             return Ok(products);
         }
 
-        /// <summary>
-        /// Obtiene los productos con más stock
-        /// </summary>
+        ///obtiene los productos con mayor stock
         [HttpGet("products/highest-stock")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetHighestStockProducts([FromQuery] int limit = 5)
         {
@@ -115,9 +107,7 @@ namespace api_gestion_productos.Controllers
             return Ok(products);
         }
 
-        /// <summary>
-        /// Obtiene productos agregados recientemente
-        /// </summary>
+        ///obtiene los productos recientemente agregados
         [HttpGet("products/recent")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetRecentProducts([FromQuery] int limit = 10)
         {

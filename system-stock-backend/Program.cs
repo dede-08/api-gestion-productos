@@ -25,13 +25,12 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo 
     { 
-        Title = "API Gestión de Productos", 
+        Title = "API Gestión de inventarios para tiendas", 
         Version = "v1",
-        Description = "API para gestión de productos con autenticación JWT",
+        Description = "API para gestión de inventarios con autenticación JWT",
         Contact = new OpenApiContact
         {
-            Name = "Tu Nombre",
-            Email = "tu.email@ejemplo.com"
+            Name = "Ben André"
         }
     });
 

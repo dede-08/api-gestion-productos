@@ -17,9 +17,7 @@ namespace api_gestion_productos.Controllers
             _productService = productService;
         }
 
-        /// <summary>
-        /// Obtiene todos los productos activos
-        /// </summary>
+        ///obtiene los productos activos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetAll()
         {
@@ -27,9 +25,7 @@ namespace api_gestion_productos.Controllers
             return Ok(products);
         }
 
-        /// <summary>
-        /// Obtiene un producto por su ID
-        /// </summary>
+        ///obtiene un producto por su ID
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductResponseDto>> GetById(int id)
         {
@@ -40,9 +36,7 @@ namespace api_gestion_productos.Controllers
             return Ok(product);
         }
 
-        /// <summary>
-        /// Crea un nuevo producto
-        /// </summary>
+        ///crear un nuevo producto
         [HttpPost]
         public async Task<ActionResult<ProductResponseDto>> Create([FromBody] CreateProductDto productDto)
         {
@@ -53,9 +47,8 @@ namespace api_gestion_productos.Controllers
             return CreatedAtAction(nameof(GetById), new { id = product.id }, product);
         }
 
-        /// <summary>
-        /// Actualiza un producto existente
-        /// </summary>
+
+        ///actualiza un producto existente
         [HttpPut("{id}")]
         public async Task<ActionResult<ProductResponseDto>> Update(int id, [FromBody] UpdateProductDto productDto)
         {
@@ -69,9 +62,7 @@ namespace api_gestion_productos.Controllers
             return Ok(product);
         }
 
-        /// <summary>
-        /// Elimina un producto (soft delete)
-        /// </summary>
+        ///elimina un producto
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -82,9 +73,7 @@ namespace api_gestion_productos.Controllers
             return NoContent();
         }
 
-        /// <summary>
-        /// Busca productos por categoría
-        /// </summary>
+        ///busca productos por categoria
         [HttpGet("category/{category}")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetByCategory(string category)
         {
@@ -92,9 +81,7 @@ namespace api_gestion_productos.Controllers
             return Ok(products);
         }
 
-        /// <summary>
-        /// Busca productos por término de búsqueda
-        /// </summary>
+        ///busca productos por termino de busqueda
         [HttpGet("search")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> Search([FromQuery] string q)
         {
@@ -105,9 +92,7 @@ namespace api_gestion_productos.Controllers
             return Ok(products);
         }
 
-        /// <summary>
-        /// Obtiene productos con stock bajo
-        /// </summary>
+        ///obtiene productos con stock bajo
         [HttpGet("low-stock")]
         public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetLowStock([FromQuery] int threshold = 10)
         {

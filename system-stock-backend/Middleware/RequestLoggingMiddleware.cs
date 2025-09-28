@@ -37,7 +37,7 @@ public class RequestLoggingMiddleware
     }
 }
 
-// Extension method for easy middleware registration
+//extension method for easy middleware registration
 public static class RequestLoggingMiddlewareExtensions
 {
     public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder builder)

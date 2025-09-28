@@ -32,9 +32,9 @@ public class User
     [StringLength(100, MinimumLength = 6, ErrorMessage = "La contraseña debe tener entre 6 y 100 caracteres")]
     public string password { get; set; } = "";
     
-    public DateTime createdAt { get; set; } = DateTime.UtcNow;
-    public DateTime? updatedAt { get; set; }
+    public DateTime createdat { get; set; } = DateTime.UtcNow;
+    public DateTime? updatedat { get; set; }
     public bool isActive { get; set; } = true;
-    public string role { get; set; } = "User"; // Admin, User, etc.
+    public string role { get; set; } = "";
 }
 
